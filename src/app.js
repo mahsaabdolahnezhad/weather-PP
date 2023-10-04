@@ -1,6 +1,7 @@
 let apiKey = "3980a7c8f2a782241a093131b099f993";
+let cityName = "New York";
 let apiUrl =
-  "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={apiKey}&units=metric";
+  "https://api.openweathermap.org/data/2.5/weather?q={cityName}&appid={apiKey}&units=metric";
 
   function formatDate(timestamp){
 let date = new Date(timestamp);
@@ -25,13 +26,15 @@ let descriptionElement = document.querySelector("#description");
 let humidityElement = document.querySelector("#humidity");
 let windElement = document.querySelector("#wind");
 let dateElement = document.querySelector("#date");
+let iconElement = document.querySelector("#icon");
 tempratureElement.innerHTML =Math.round(response.data.main.temp);
 cityElement.innerHTML =response.data.name;
 descriptionElement.innerHTML = response.data.weather[0].description;
 humidityElement.innerHTML= response.data.main.humidity;
 windElement.innerHTML = Math.round(response.data.wind.speed);
 dateElement.innerHTML = formatDate(response.data.dt*1000);
-
+iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+iconElement.setAttribute("alt", response.data.weather[0].description);
 
 
   };
