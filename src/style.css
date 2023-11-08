@@ -55,3 +55,11 @@ small{
     text-align: center;
 
 }
+ .weather-temprature .active{
+color: rgb(33, 33, 33);
+cursor: default;
+  text-decoration: none;
+ }
+ .weather-temprature .active:hover{
+    text-decoration: none;
+ }
