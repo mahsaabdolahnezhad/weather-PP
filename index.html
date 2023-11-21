@@ -1,63 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-     <link rel="stylesheet" href="src\style.css" />
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src\style.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="weather-app">
-            <form id="search-form" class="mb-3">
-                <div class="row"> 
-                    <div class="col-9">
-                <input type="search" placeholder="enter a city ..." class="form-control" id="city-input" autocomplete="off"/>
+      <div class="weather-app">
+        <form id="search-form" class="mb-3">
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="enter a city ..."
+                class="form-control"
+                id="city-input"
+                autocomplete="off"
+              />
             </div>
             <div class="col-3">
-                <input type="submit" value="Search" class="btn btn-primary w-100" />
+              <input
+                type="submit"
+                value="Search"
+                class="btn btn-primary w-100"
+              />
             </div>
+          </div>
+        </form>
+        <div class="overview">
+          <h1 id="city"></h1>
+          <ul>
+            <li>Last Updated at <span id="date"></span></li>
+            <li id="description"></li>
+          </ul>
+          <div class="row">
+            <div class="col-6">
+              <div class="clearfix weather-temprature">
+                <img src="" alt="sunny" id="icon" />
+                <strong id="temprature"></strong>
+                <span class="units"
+                  ><a href="#" id="celsius-link" class="active">℃</a> |<a
+                    href="#"
+                    id="fahrenheit-link"
+                    >℉</a
+                  >
+                </span>
+              </div>
             </div>
-            </form>
-            <div class="overview">
-    <h1 id="city">
-    
-    </h1> 
-    <ul>
-    <li >Last Updated at <span id="date"></span>
-    </li>   
-    <li id="description">
-        
-    </li> 
-    </ul>
-    <div class="row">
-        <div class="col-6">
-            <div class="clearfix weather-temprature">
-            <img   src="" alt="sunny" id="icon"/>
-          <strong id="temprature"></strong> <span class="units"><a href="#" id="celsius-link" class="active">℃</a> |<a href="#" id="fahrenheit-link">℉</a> </span> 
-    </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind:<span id="wind"></span>> km/h</li>
+              </ul>
+            </div>
+          </div>
+          <div class="weather-forecast">
+            <div class="row">
+              <div class="col-2">
+                <div class="weather-forecast-date">Thus</div>
+                
+                    <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="" width="42">
+                    <div class="weather-forecast-temp">
+                      <span class="weather-max-temp">18°</span>
+                      <span class="weather-min-temp"> 12°</span>
+                       </div>
+            </div>
+          </div>
         </div>
-    <div class="col-6">
-        <ul>
-           
-            <li>
-                Humidity: <span id="humidity"></span>%
-            </li>
-            <li>
-                Wind:<span id="wind"></span>> km/h
-            </li>
-        </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    <small>
-        <a href="https://github.com/mahsaabdolahnezhad/weather-PP" target="_blank">Open-Source code</a>
-         by Mahsa Abdolahnezhad
- </small>
+        </div>
+      <small>
+        <a
+          href="https://github.com/mahsaabdolahnezhad/weather-PP"
+          target="_blank"
+          >Open-Source code</a
+        >
+        by Mahsa Abdolahnezhad
+      </small>
     </div>
     <script src="src\app.js"></script>
-</body>
+  </body>
 </html>
