@@ -76,3 +76,26 @@ fahrenheitLink.addEventListener("click",displayFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
+
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml += `
+        <div class="weather-forecast-day">
+          <div class="weather-forecast-date">${day}</div>
+          <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="" class="forecast-icon">
+          <div class="weather-forecast-temp">
+            <span class="weather-max-temp">18°</span>
+            <span class="weather-min-temp">12°</span>
+          </div>
+      </div>`;
+  });
+
+  let forecast = document.querySelector("#forecast");
+  forecast.innerHTML = forecastHtml;
+};
+
+displayForecast();
+        

@@ -64,8 +64,7 @@ cursor: default;
     text-decoration: none;
  }
 .weather-forecast{
-    margin-top: 20px;
-    text-align: center;
+ 
     color: black;
     
 }
@@ -78,4 +77,8 @@ cursor: default;
 }
 .weather-min-temp{
     opacity: 0.5;
+}
+.forecast-icon {
+  width: 50px; /* Adjust the width as needed */
+  height: auto;
 }
