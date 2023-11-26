@@ -19,11 +19,20 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
  axios.get(apiUrl).then(displayTemp);
   };
 
-  function getForcast(city){
+  function getForecast(city){
 apiKey = "6a0e728f9903t4d8c372boc76730411b";
-apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key={key}&units=metric`;
+apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
 axios(apiUrl).then(displayForecast);
   };
+
+  function formatDay(timestamp){
+    let date = new Date(timestamp * 1000);
+    let days= ["Sun" , "Mon", "Tue" , "Wed" , "Thu", "Fri", "Sat"];
+   
+  return days[date.getDay()];
+
+  }
 
 function displayTemp(response) {
 let tempratureElement = document.querySelector("#temprature");
@@ -83,25 +92,30 @@ fahrenheitLink.addEventListener("click",displayFahrenheit);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
 
-function displayForecast() {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+function displayForecast(response) {
+
   let forecastHtml = "";
 
-  days.forEach(function (day) {
+  response.data.daily.forEach(function (day , index) {
+    if (index < 6){
     forecastHtml += `
         <div class="weather-forecast-day">
-          <div class="weather-forecast-date">${day}</div>
-          <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="" class="forecast-icon">
+          <div class="weather-forecast-date">${formatDay(day.time)}</div>
+          <img src="${day.condition.icon_url}" alt="" class="forecast-icon">
           <div class="weather-forecast-temp">
-            <span class="weather-max-temp">18°</span>
-            <span class="weather-min-temp">12°</span>
+            <span class="weather-max-temp">${Math.round(
+              day.temperature.maximum
+            )}°</span>
+            <span class="weather-min-temp">${Math.round(
+              day.temperature.minimum
+            )}°</span>
           </div>
       </div>`;
+            }
   });
 
   let forecast = document.querySelector("#forecast");
   forecast.innerHTML = forecastHtml;
 };
-
-displayForecast();
-        
+search("tokyo");
+getForecast("tokyo");
