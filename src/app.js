@@ -19,6 +19,12 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
  axios.get(apiUrl).then(displayTemp);
   };
 
+  function getForcast(city){
+apiKey = "6a0e728f9903t4d8c372boc76730411b";
+apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key={key}&units=metric`;
+axios(apiUrl).then(displayForecast);
+  };
+
 function displayTemp(response) {
 let tempratureElement = document.querySelector("#temprature");
 let cityElement = document.querySelector("#city");

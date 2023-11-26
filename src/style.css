@@ -64,8 +64,9 @@ cursor: default;
     text-decoration: none;
  }
 .weather-forecast{
- 
     color: black;
+    display: flex;
+    justify-content: space-between;
     
 }
 .weather-forecast-date{
